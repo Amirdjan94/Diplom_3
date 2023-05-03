@@ -1,0 +1,13 @@
+ru\praktikum\extensions\WebDriverFactory.class
+ru\praktikum\data\User.class
+ru\praktikum\data\UserCreds.class
+ru\praktikum\pages\component\HeaderComponent.class
+ru\praktikum\data\UserInfo.class
+ru\praktikum\pages\ForgotPasswordPage.class
+ru\praktikum\pages\AuthorizationPage.class
+ru\praktikum\data\Const.class
+ru\praktikum\pages\MainPage.class
+ru\praktikum\user\UserAction.class
+ru\praktikum\pages\RegistrationPage.class
+ru\praktikum\data\UserGenerator.class
+ru\praktikum\pages\ProfilePage.class
