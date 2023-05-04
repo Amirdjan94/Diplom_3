@@ -17,33 +17,41 @@ public class RegistrationPage {
     private By incorrectPassworError = By.className("input__error");
     private By loginBtn = By.xpath(".//a[@href='/login']");
 
+
     public RegistrationPage(WebDriver driver, User user) {
         this.driver = driver;
         this.user =user;
     }
+
     public void clickRegistrationBtn(){
         driver.findElement(btnRegistration).click();
     }
+
     public void fillDataRegistration(String name, String email, String password) {
         driver.findElement(inputName).sendKeys(name);
         driver.findElement(inputEmail).sendKeys(email);
         driver.findElement(inputPassword).sendKeys(password);
     }
+
     public AuthorizationPage registrationUser(){
         fillDataRegistration(user.getName(), user.getEmail(), user.getPassword());
         clickRegistrationBtn();
         return new AuthorizationPage(driver, user);
     }
+
     public RegistrationPage registrationUserWithIncorrectPassword(){
         fillDataRegistration(user.getName(), user.getEmail(), incorrectPassword);
         clickRegistrationBtn();
         return this;
     }
+
     public boolean isVisibleIncorrectPasswordError(){
         return driver.findElement(incorrectPassworError).getText().equals(INCORRECT_PASSWORD_ERROR);
     }
+
     public AuthorizationPage clickLoginBtn(){
         driver.findElement(loginBtn).click();
         return new AuthorizationPage(driver, user);
     }
+
 }

@@ -11,9 +11,11 @@ import static ru.praktikum.data.Const.*;
 public class UserAction {
     private String accessToken;
     private UserCreds userCreds;
+
     public UserAction() {
         RestAssured.baseURI = BASE_URI;
     }
+
     public Response deleteUser (Response response) {
         userCreds = response.as(UserCreds.class);
         accessToken = userCreds.getAccessToken().replaceFirst("Bearer ", "");
@@ -22,6 +24,7 @@ public class UserAction {
                 .when()
                 .delete(CHANGE_USER_PATH);
     }
+
     public Response login (User user) {
         return given()
                 .header("Content-type", "application/json")
@@ -30,6 +33,7 @@ public class UserAction {
                 .when()
                 .post(LOGIN_USER_PATH);
     }
+
     public Response createUser (User user) {
         return given()
                 .header("Content-type", "application/json")
@@ -38,4 +42,5 @@ public class UserAction {
                 .when()
                 .post(CREATE_USER_PATH );
     }
+
 }

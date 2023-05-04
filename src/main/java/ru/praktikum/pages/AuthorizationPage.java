@@ -13,21 +13,26 @@ public class AuthorizationPage {
     private By inputEmail = By.xpath(".//label[text()='Email']/parent::div/input");
     private By inputPassword = By.xpath(".//input[@type='password']");
     private By forgotPasswordBtn = By.xpath(".//a[@href='/forgot-password']");
+
     public AuthorizationPage (WebDriver driver, User user) {
         this.driver = driver;
         this.user =user;
     }
+
     public RegistrationPage clickRegistrationBtn(){
         driver.findElement(btnRegistration).click();
         return new RegistrationPage(driver, user);
     }
+
     public void clickLoginBtn(){
         driver.findElement(btnLogin).click();
     }
+
     public ForgotPasswordPage clickForgotPasswordBtn(){
         driver.findElement(forgotPasswordBtn).click();
         return new ForgotPasswordPage(driver, user);
     }
+
     public boolean isVisibleRegistrationBtn () {
         return driver.findElement(btnLogin).isDisplayed();
     }
@@ -36,9 +41,11 @@ public class AuthorizationPage {
         driver.findElement(inputPassword).sendKeys(password);
 
     }
+
     public MainPage loginUser() {
         fillDataLogin(user.getEmail(), user.getPassword());
         clickLoginBtn();
         return new MainPage(driver, user);
     }
+
 }
